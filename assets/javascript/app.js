@@ -9,7 +9,7 @@ var correctAnswers = 0;
 var wrongAnswers = 0;
 var intervalID;
 var userAnswer;
-questionArrayIndex = 0;
+var questionArrayIndex = 0;
 var questionArray = [
     { 
     q: "This is by far the most popular Sierra Nevada beer and is characterized by its exceptionally full-bodied, complex character and deep amber color",
@@ -66,6 +66,7 @@ function startGame() {
     resetCounter();
     intervalID = setInterval(decrement, 1000);
     $("#counter").html(counter);
+    pullQuestion();
 };
 
 
@@ -81,14 +82,13 @@ function decrement() {
 function resetCounter() {
     counter = 10;
     $("#counter").html(counter);
-    clearInterval(this.intervalID);
-    pullQuestion();
+    clearInterval(intervalID);
 }
 
 function pullQuestion() {
     $("#questions").empty();
     $("#answers").empty();
-    if (questionArrayIndex < 8) {
+    if (questionArrayIndex < 7) {
         $("#questions").html("<p>" + questionArray[questionArrayIndex].q + "</p>");
         for (var i = 0; i < questionArray[questionArrayIndex].a.length; i++){
             var button = $("<button>");
@@ -99,9 +99,10 @@ function pullQuestion() {
         }
     }
     };
-//what happens when a user clicks on the correct answer
-    $(".answer-button").on("click",{
-        userAnswer = questionArray.a[i]
+// what happens when a user clicks on the correct answer
+    $(".answer-button").on("click", {
+        var userAnswer = 
+        if (userAnswer = questionArray.a[i]
         if (userAnswer = questionArray.a) {
             console.log("salad");
         }
