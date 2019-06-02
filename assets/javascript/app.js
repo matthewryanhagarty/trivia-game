@@ -8,6 +8,7 @@ var counter = 5;
 var correctAnswers = 0;
 var wrongAnswers = 0;
 var intervalID;
+var userAnswer;
 questionArrayIndex = 0;
 var questionArray = [
     { 
@@ -98,8 +99,13 @@ function pullQuestion() {
         }
     }
     };
-
-    $(".answer-button").on("click", )
+//what happens when a user clicks on the correct answer
+    $(".answer-button").on("click",{
+        userAnswer = questionArray.a[i]
+        if (userAnswer = questionArray.a) {
+            console.log("salad");
+        }
+    } )
 
 // console.log(questionArray[1].q);
 
