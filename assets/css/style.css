@@ -5,7 +5,7 @@ body {
 }
 
 .answer-button {
-    margin-left: 25px;
+    margin-left: 10px;
 }
 .container {
     width: 970px;
@@ -16,4 +16,31 @@ body {
     border: 10px;
     background-color: white;
     background-size: auto;
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+
+    .container{
+        width: 900px;
+        margin: 0 auto;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+
+
+    .container{
+        width: 100%;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 575.98px) {
+
+    .container{
+        width: 75%;
+        margin: 0 auto;
+        text-align: center;
+    }
+
 }
