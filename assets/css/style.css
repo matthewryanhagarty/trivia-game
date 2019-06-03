@@ -1,3 +1,13 @@
+body {
+    background-color: beige;
+}
+
 .answer-button {
     margin-left: 25px;
+}
+
+.outside-container {
+    background-image: url(assets/images/pale-ale.jpg);
+    margin: 0 auto;
+    text-align: center;
 }

@@ -13,7 +13,7 @@ $(document).ready(function(){
     var questionArrayIndex = 0;
     var questionArray = [
         { 
-        q: "Question 1: This is by far the most popular Sierra Nevada beer and is characterized by its exceptionally full-bodied, complex character and deep amber color",
+        q: "Question 1: This is by far the most popular Sierra Nevada beer and is characterized by its exceptionally full-bodied, complex character and deep amber color?",
         a: ["All Day IPA" , "Pale Ale" , "Tumbler Autumn Brown Ale" , "Ruthless Rye IPA"],
         c: "Pale Ale",
         },
@@ -147,12 +147,4 @@ $(document).ready(function(){
     }
 
 
-    
-    // function run() {
-    // //     cleartInterval(startGame);
-    // //     pullQuestion();
-    // //     startGame = setInterval(decrement , 1000);
-    // };
-        
-    
     });
