@@ -81,6 +81,7 @@ $(document).ready(function(){
         $("#wrong-answer").html(wrongAnswers);
         $("#correct-answer").html(correctAnswers);
         $("#start-button").hide();
+        clearInterval(intervalId);
         setInterval(decrement, 1000);
         pullQuestion();
 
@@ -109,7 +110,7 @@ $(document).ready(function(){
         resetCounter();
         $("#questions").empty();
         $("#answers").empty();
-        if (questionArrayIndex < questionArray.length - 1) {
+        if (questionArrayIndex < questionArray.length) {
             $("#questions").html("<p>" + questionArray[questionArrayIndex].q + "</p>");
             for (var i = 0; i < questionArray[questionArrayIndex].a.length; i++){
                 var button = $("<button>");
