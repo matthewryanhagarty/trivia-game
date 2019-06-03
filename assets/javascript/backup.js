@@ -1,15 +1,13 @@
 $(document).ready(function(){
 
-    $("#correct-answers").hide();
-    $("#wrong-answers").hide();
+
     $("#start-button").show();
     $("#start-button").on("click", startGame);
-    
+
     var counter = 5;
     var correctAnswers = 0;
     var wrongAnswers = 0;
     var intervalID;
-    var userAnswer;
     var questionArrayIndex = 0;
     var questionArray = [
         { 
@@ -62,16 +60,24 @@ $(document).ready(function(){
     
     ];
     
+
+    $("#answers").on("click", ".awnser-button", function() {
+        var userAnswer = $(this).data("name");
+        if (userAnswer === questionArray[questionArrayIndex].c) {
+            rightAnswer();
+            $("#questions").empty();
+            $("#answers").empty();
+        } 
+        else
+        wrongAnswer();
+    })
+    
     function startGame() {
-        $("#start-button").hide();
-        $("#correct-answers").show(correctAnswers);
-        $("#wrong-answers").show(wrongAnswers);
-        resetCounter();
-        intervalID = setInterval(decrement, 1000);
         $("#counter").html(counter);
+        $("#start-button").hide();
+        setInterval(decrement, 1000);
         pullQuestion();
 
-        
     };
     
     
@@ -80,23 +86,24 @@ $(document).ready(function(){
             counter--;
             $("#counter").html(counter);
         }
-        else (counter === 0)
+        else if (counter === 0) {
+            // alert("You're out of time");
             wrongAnswer();
         }
+        };
         
     
-    
-    //if the correct answer is selected?
     function resetCounter() {
-        counter = 10;
-        $("#counter").html(counter);
         clearInterval(intervalID);
+        counter = 5;
+        $("#counter").html(counter);
     }
     
     function pullQuestion() {
+        resetCounter();
         $("#questions").empty();
         $("#answers").empty();
-        if (questionArrayIndex <= (questionArray.length - 1)) {
+        if (questionArrayIndex < 7) {
             $("#questions").html("<p>" + questionArray[questionArrayIndex].q + "</p>");
             for (var i = 0; i < questionArray[questionArrayIndex].a.length; i++){
                 var button = $("<button>");
@@ -104,29 +111,34 @@ $(document).ready(function(){
                 button.addClass("answer-button")
                 button.attr("data-name" , questionArray[questionArrayIndex].a[i])
                 $("#answers").append(button)
-            
+            }
+        } else {
+            clearInterval(intervalID);
+            $("#correct-answers").hide();
+            $("#wrong-answers").hide();
+            $("correct-answers")
+            $("#answers").html("You got " + correctAnswers + " questions correct & " + wrongAnswers + " wrong.");
         }
     }
-        }
+
 
     function wrongAnswer() {
-        wrongAnswer++;
         clearInterval(intervalID);
-    }
-
-    function nextQuestion() {
+        wrongAnswers++;
+        $("#wrong-answers").html(wrongAnswers);
         questionArrayIndex++;
+        pullQuestion();
     }
 
-    // what happens when a user clicks on the correct answer
-        $(".answer-button").on("click", ".awnser-button", function() {
-            var userAnswer = $(this).data("name");
-            if (userAnswer === questionArray[questionArrayIndex].c) {
-                console.log("salad");
-            }
-        } )
-    
-    // console.log(questionArray[1].q);
+    function rightAnswer() {
+        clearInterval(intervalID);
+        correctAnswers++;
+        $("#correct-answers").html(correctAnswers);
+        questionArrayIndex++;
+        pullQuestion();
+    }
+
+
     
     // function run() {
     // //     cleartInterval(startGame);
@@ -134,21 +146,5 @@ $(document).ready(function(){
     // //     startGame = setInterval(decrement , 1000);
     // };
         
-    
-    // //empties target DIV
-    // //access questions
-    // //appends counter to page
-    // //
-    // };
-    
-    
-    
-    function appendDiv() {
-    
-    };
-    
-    function clearInterval() {
-    
-    };
     
     });
