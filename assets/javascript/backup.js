@@ -82,7 +82,7 @@ $(document).ready(function(){
         $("#correct-answer").html(correctAnswers);
         $("#start-button").hide();
         clearInterval(intervalId);
-        setInterval(decrement, 1000);
+        intervalId = setInterval(decrement, 1000);
         pullQuestion();
 
     };
@@ -102,6 +102,7 @@ $(document).ready(function(){
     
     function resetCounter() {
         clearInterval(intervalId);
+        intervalId = setInterval(decrement, 1000);
         counter = 15;
         $("#counter").html(counter);
     }
@@ -132,20 +133,29 @@ $(document).ready(function(){
 
 
     function wrongAnswer() {
-        resetCounter();
+        clearInterval(intervalId);
+        $("#questions").empty();
+        $("#answers").empty();
+        $("#questions").html("Unfortunately, the correct answer was " + questionArray[questionArrayIndex].c + ".")
+        // resetCounter();
         wrongAnswers++;
         $("#wrong-answers").html(wrongAnswers);
         questionArrayIndex++;
-        pullQuestion();
+        setTimeout(pullQuestion, 5000);
     }
 
     function rightAnswer() {
-        resetCounter();
+        clearInterval(intervalId);
+        $("#questions").empty();
+        $("#answers").empty();
+        $("#questions").html("You know your stuff! The correct answer was indeed " + questionArray[questionArrayIndex].c + ", but get ready, the next question is coming at you fast!")
+
+        // resetCounter();
         correctAnswers++;
         $("#correct-answers").html(correctAnswers);
         questionArrayIndex++;
-        pullQuestion();
-    }
+        setTimeout(pullQuestion, 7000);
 
+    }
 
     });
