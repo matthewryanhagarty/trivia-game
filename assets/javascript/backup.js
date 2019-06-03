@@ -111,6 +111,9 @@ $(document).ready(function(){
     
     function pullQuestion() {
         resetCounter();
+        $("#time-remaining").show();
+        $("#counter").show();
+        $("#counter").html(counter);
         $("#questions").empty();
         $("#answers").empty();
         if (questionArrayIndex < questionArray.length) {
@@ -142,6 +145,8 @@ $(document).ready(function(){
 
     function wrongAnswer() {
         clearInterval(intervalId);
+        $("#time-remaining").hide();
+        $("#counter").hide();
         $("#questions").empty();
         $("#answers").empty();
         $("#questions").html("Unfortunately, the correct answer was '" + questionArray[questionArrayIndex].c + ".'")
@@ -154,6 +159,8 @@ $(document).ready(function(){
 
     function rightAnswer() {
         clearInterval(intervalId);
+        $("#time-remaining").hide();
+        $("#counter").hide();
         $("#questions").empty();
         $("#answers").empty();
         $("#questions").html("You know your stuff! The correct answer was indeed '" + questionArray[questionArrayIndex].c + "!'")
