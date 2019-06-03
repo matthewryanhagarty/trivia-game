@@ -68,12 +68,14 @@ $(document).ready(function(){
         if (userAnswer === questionArray[questionArrayIndex].c) {
             clearInterval(intervalId);
             rightAnswer();
+            // console.log("correct");
         } 
         else
         wrongAnswer();
     })
     
     function startGame() {
+        console.log("test");
         $("#correct-text").show();
         $("#wrong-text").show();
         $("#time-remaining").show();
@@ -122,12 +124,18 @@ $(document).ready(function(){
             }
         } else {
             clearInterval(intervalId);
-            $("#correct-answers").hide();
-            $("#wrong-answers").hide();
+            $("#correct-answers").empty();
+            $("#wrong-answers").empty();
             $("#correct-text").hide();
             $("#wrong-text").hide();
             $("#time-remaining").hide();
             $("#answers").html("You got " + correctAnswers + " question(s) correct & " + wrongAnswers + " question(s) wrong.");
+            // $("#start-button").on("click", startGame);
+
+            questionArrayIndex = 0;
+            correctAnswers = 0;
+            wrongAnswers = 0;
+            $("#start-button").show();
         }
     }
 
@@ -136,25 +144,26 @@ $(document).ready(function(){
         clearInterval(intervalId);
         $("#questions").empty();
         $("#answers").empty();
-        $("#questions").html("Unfortunately, the correct answer was " + questionArray[questionArrayIndex].c + ".")
+        $("#questions").html("Unfortunately, the correct answer was '" + questionArray[questionArrayIndex].c + ".'")
         // resetCounter();
         wrongAnswers++;
         $("#wrong-answers").html(wrongAnswers);
         questionArrayIndex++;
-        setTimeout(pullQuestion, 5000);
+        setTimeout(pullQuestion, 1000);
     }
 
     function rightAnswer() {
         clearInterval(intervalId);
         $("#questions").empty();
         $("#answers").empty();
-        $("#questions").html("You know your stuff! The correct answer was indeed " + questionArray[questionArrayIndex].c + ", but get ready, the next question is coming at you fast!")
+        $("#questions").html("You know your stuff! The correct answer was indeed '" + questionArray[questionArrayIndex].c + "!'")
 
         // resetCounter();
         correctAnswers++;
+        console.log(correctAnswers);
         $("#correct-answers").html(correctAnswers);
         questionArrayIndex++;
-        setTimeout(pullQuestion, 7000);
+        setTimeout(pullQuestion, 1000);
 
     }
 
