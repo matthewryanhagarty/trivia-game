@@ -6,7 +6,7 @@ $(document).ready(function(){
     $("#start-button").show();
     $("#start-button").on("click", startGame);
 
-    var counter = 5;
+    var counter = 15;
     var correctAnswers = 0;
     var wrongAnswers = 0;
     var intervalId;
@@ -101,7 +101,7 @@ $(document).ready(function(){
     
     function resetCounter() {
         clearInterval(intervalId);
-        counter = 5;
+        counter = 15;
         $("#counter").html(counter);
     }
     
@@ -125,7 +125,7 @@ $(document).ready(function(){
             $("#correct-text").hide();
             $("#wrong-text").hide();
             $("#time-remaining").hide();
-            $("#answers").html("You got " + correctAnswers + " questions correct & " + wrongAnswers + " wrong.");
+            $("#answers").html("You got " + correctAnswers + " question(s) correct & " + wrongAnswers + " question(s) wrong.");
         }
     }
 
