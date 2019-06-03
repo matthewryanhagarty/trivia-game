@@ -149,7 +149,7 @@ $(document).ready(function(){
         wrongAnswers++;
         $("#wrong-answers").html(wrongAnswers);
         questionArrayIndex++;
-        setTimeout(pullQuestion, 1000);
+        setTimeout(pullQuestion, 5000);
     }
 
     function rightAnswer() {
@@ -163,7 +163,7 @@ $(document).ready(function(){
         console.log(correctAnswers);
         $("#correct-answers").html(correctAnswers);
         questionArrayIndex++;
-        setTimeout(pullQuestion, 1000);
+        setTimeout(pullQuestion, 5000);
 
     }
 
