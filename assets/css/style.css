@@ -6,8 +6,10 @@ body {
 
 .answer-button {
     margin-left: 10px;
+    font-family: 'Playfair Display', serif;
 }
 .container {
+    text-align: center;
     width: 970px;
     height: auto;
     padding: 20px;
@@ -16,6 +18,38 @@ body {
     border: 10px;
     background-color: white;
     background-size: auto;
+}
+
+#game-name {
+    text-align: center;
+}
+
+#questions {
+    text-align: center;
+    margin: 0 auto;
+}
+
+#time-remaining {
+    margin: 0 auto;
+}
+
+#answers {
+    text-align: center;
+    margin: 0 auto;
+}
+
+#correct-text {
+    margin: 0 auto;
+}
+
+#wrong-text {
+    margin: 0 auto;
+}
+
+#main-content {
+    text-align: center;
+    width: 0 auto;
+    font-family: 'Playfair Display', serif;
 }
 
 @media (min-width: 768px) and (max-width: 991.98px) {

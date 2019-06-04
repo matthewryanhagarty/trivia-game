@@ -13,49 +13,49 @@ $(document).ready(function(){
     var questionArrayIndex = 0;
     var questionArray = [
         { 
-        q: "Question 1: This is by far the most popular Sierra Nevada beer and is characterized by its exceptionally full-bodied, complex character and deep amber color?",
+        q: "This is by far the most popular Sierra Nevada beer and is characterized by its full-bodied, complex character and deep amber color?",
         a: ["All Day IPA" , "Pale Ale" , "Tumbler Autumn Brown Ale" , "Ruthless Rye IPA"],
         c: "Pale Ale",
         },
     
         { 
-        q: "Question 2: Sierra Nevada Brewing Co. was started in 1979 by this extremely handsome bearded man?",
+        q: "Sierra Nevada Brewing Co. was started in 1979 by this extremely handsome bearded man?",
         a: ["Jim Koch" , "Dick Yuengling" , "Matthew Ryan Hagarty", "Ken Grossman"],
         c: "Ken Grossman",
         },
     
         { 
-        q: "Question 3: This small northern California town is home to the Sierra Nevada Brewery?",
+        q: "This small northern California town is home to the Sierra Nevada Brewery?",
         a: ["Chico" , "Redding" , "Walnut Creek" , "Orangevale"],
         c: "Chico",
         },
     
         { 
-        q: "Question 4: This Sierra Nevada IPA is always released just in time for the winter holidays & is best known for its citrus & pine aromas?",
+        q: "This Sierra Nevada IPA is always released just in time for the winter holidays & is best known for its citrus & pine aromas?",
         a: ["Hazy Little Thing" , "Kellerweis" , "Celebration" , "Snow Wit White"],
         c: "Celebration",
         },
     
         { 
-        q: "Question 5: This Sierra Nevada Pilsner is only available during the summer months & is best known for its crisp, golden, malt flavor?",
+        q: "This Sierra Nevada Pilsner is only available during the summer months & is best known for its crisp, golden, malt flavor?",
         a: ["Summerfest" , "Oktoberfest" , "Tropical Torpedo", "Northern Hemisphere Harvest"],
         c: "Summerfest",
         },
     
         { 
-        q: "Question 6: This barley-wine style ale from Sierra Nevada has the highest alcohol content amongst a diverse array of Sierra Nevada beers?",
+        q: "This barley-wine style ale from Sierra Nevada has the highest alcohol content amongst a diverse array of Sierra Nevada beers?",
         a: ["Narwhal" , "Hoptimum" , "Hop Bullet" , "Bigfoot"],
         c: "Bigfoot",
         }, 
     
         { 
-        q: "Question 7: More than 1,400 breweries joined together to simultaneously brew which Sierra Nevada beer in which 100% of the proceeds went to help those affected by the recent Paradise wild fire?",
+        q: "More than 1,400 breweries joined together to simultaneously brew which Sierra Nevada beer in which 100% of the proceeds went to help those affected by the recent Paradise wild fire?",
         a: ["Torpedo" , "Old Chico" , "Resilience", "Otra Vez"],
         c: "Resilience",
         },
     
         { 
-        q: "Question 8: Each year, Sierra Nevada invites a select group of homebrewers to what event in which they compete for a chance to have their own beer distributed nationwide through Sierra Nevada?",
+        q: "Each year, Sierra Nevada invites a select group of homebrewers to what event in which they compete for a chance to have their own beer distributed nationwide through Sierra Nevada?",
         a: ["Sierra Nevada Beer Camp" , "Sierra Nevada Summer Games" , "Sierra Nevada Distributionfest" , "Sierra Nevada Homebrewfest"],
         c: "Sierra Nevada Beer Camp",
         },
@@ -76,8 +76,6 @@ $(document).ready(function(){
     
     function startGame() {
         console.log("test");
-        $("#correct-text").show();
-        $("#wrong-text").show();
         $("#time-remaining").show();
         $("#counter").html(counter);
         $("#wrong-answer").html(wrongAnswers);
@@ -96,7 +94,6 @@ $(document).ready(function(){
             $("#counter").html(counter);
         }
         else if (counter === 0) {
-            // alert("You're out of time");
             wrongAnswer();
         }
         };
@@ -142,6 +139,7 @@ $(document).ready(function(){
 
     function wrongAnswer() {
         clearInterval(intervalId);
+        $("#wrong-text").show();
         $("#questions").empty();
         $("#answers").empty();
         $("#questions").html("Unfortunately, the correct answer was, '" + questionArray[questionArrayIndex].c + ".'")
@@ -154,6 +152,7 @@ $(document).ready(function(){
 
     function rightAnswer() {
         clearInterval(intervalId);
+        $("#correct-text").show();
         $("#questions").empty();
         $("#answers").empty();
         $("#questions").html("You know your stuff! The correct answer was indeed, '" + questionArray[questionArrayIndex].c + "!'")
